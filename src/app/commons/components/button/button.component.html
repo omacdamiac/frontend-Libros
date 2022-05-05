@@ -1,0 +1,21 @@
+<ng-container *ngIf="type === 'borde'; else Border">
+  <button
+    mat-stroked-button
+    [color]="color"
+    [disabled]="disabled"
+    (click)="action()"
+  >
+    {{ texto }}
+  </button>
+</ng-container>
+<ng-template #Border>
+  <button
+    mat-raised-button
+    class="w-100"
+    [color]="color"
+    [disabled]="disabled"
+    (click)="action()"
+  >
+    {{ texto }}
+  </button>
+</ng-template>

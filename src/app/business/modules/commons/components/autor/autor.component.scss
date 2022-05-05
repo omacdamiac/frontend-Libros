@@ -1,0 +1,20 @@
+mat-icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #aaa;
+    &:hover{
+        color: black;
+    }
+}
+
+.layer{
+    height: 40px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    &.cdr{
+        display: none;
+    }
+}

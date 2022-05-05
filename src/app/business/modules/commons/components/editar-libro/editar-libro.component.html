@@ -1,0 +1,87 @@
+<div class="row position-relative">
+  <div class="col-12">
+    <h2 mat-dialog-title>Moficando libro: " <span class="titulo">{{ book.titulo }}</span> "</h2>
+    <mat-icon [mat-dialog-close]="true">disabled_by_default</mat-icon>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-12">
+    <app-input
+      [formParent]="formEditBook"
+      [label]="inputTitulo.text"
+      [placeholder]="inputTitulo.place"
+      [required]="inputTitulo.required"
+      [name]="inputTitulo.name"
+      [type]="inputTitulo.type"
+      [value]="book.titulo"
+    ></app-input>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <app-input
+      [value]="book.descripcion"
+      [formParent]="formEditBook"
+      [label]="inputDescription.text"
+      [placeholder]="inputDescription.place"
+      [required]="inputDescription.required"
+      [name]="inputDescription.name"
+      [type]="inputDescription.type"
+    ></app-input>
+  </div>
+</div>
+<div class="row align-items-center">
+  <div class="col-12 col-md-8">
+    <app-input
+      [formParent]="formEditBook"
+      [label]="inputAutor.text"
+      [placeholder]="inputAutor.place"
+      [required]="inputAutor.required"
+      [name]="inputAutor.name"
+      [type]="inputAutor.type"
+      [readonly]="inputAutor.readonly"
+      [value]="autor?.nombre === null ? book.autor['nombre'] : autor?.nombre"
+    ></app-input>
+  </div>
+  <div class="col-12 col-md-3">
+    <app-button
+      [texto]="buttonAutor.texto"
+      [color]="buttonAutor.color"
+      [type]="buttonAutor.type"
+      (evento)="setAutor()"
+    ></app-button>
+  </div>
+</div>
+<div class="row align-items-center">
+  <div class="col-12 col-md-4">
+    <app-select
+      [formParent]="formEditBook"
+      [label]="selectAnio.label"
+      [name]="selectAnio.name"
+      [required]="selectAnio.required"
+      [value]="selectAnio.value"
+      [options]="selectAnio.options"
+    ></app-select>
+  </div>
+  <div class="col-12 col-md-4">
+    <mat-checkbox
+      class="example-margin"
+      [checked]="book.publicado"
+      [color]="chk.color"
+      (change)="chkSet($event.checked)"
+    >
+      {{ chk.name }}
+    </mat-checkbox>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-12">
+    <app-button
+      [texto]="buttonSave.texto"
+      [color]="buttonSave.color"
+      (evento)="updateBook()"
+    ></app-button>
+  </div>
+</div>

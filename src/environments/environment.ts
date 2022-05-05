@@ -3,8 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+  api_login: 'https://reqres.in/api/',
+  api_base: 'https://omaclibros.herokuapp.com/',
+  // api_base: 'http://localhost:8080/',
+
+  url_notImage: 'https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png'
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

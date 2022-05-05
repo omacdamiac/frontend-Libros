@@ -1,0 +1,11 @@
+.w-25 {
+  @media (max-width: 768px) {
+    width: 75% !important;
+  }
+}
+hr {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}

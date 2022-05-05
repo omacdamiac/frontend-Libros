@@ -1,0 +1,34 @@
+@import './../../../../../../scss/variables';
+table {
+  width: 100%;
+}
+td,
+th {
+  width: auto;
+}
+.mat{
+  &-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  &-row:hover &-cell {
+    background: $gray;
+  }
+}
+mat{
+  &-icon{
+    margin: 0 10px;
+  }
+}
+.publicado {
+  font-size: $font-form;
+  padding: 4px 8px;
+  background: $succes;
+  color: $light;
+  border-radius: 5px;
+  &-no {
+    @extend .publicado;
+    background: $text-red;
+    text-decoration: line-through;
+  }
+}

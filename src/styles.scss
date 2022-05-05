@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'scss/variables';
+@import '~ngx-toastr/toastr.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+a{
+    cursor: pointer;
+}
+
+mat{
+    &-icon{
+        @media (max-width: 768px) {
+            display: inline!important;
+            font-size: 20px;
+        }
+        &:hover{
+            color: $text-red
+        }
+    }
+}
+label{
+    font-size: $font-form;
+}
+.mat-elevation-z8{
+    overflow-x: auto;
+}
+
+/**
+*
+* CHARTS
+*
+*/
+.d-grid{
+    display: grid!important;
+}
+.chart{
+    &__barras{
+        width: 100%;
+        height: 250px;
+    }
+    &__pie{
+        width: 100%;
+        height: 340px;    
+    }
+}

@@ -1,0 +1,15 @@
+@import '../../../../scss/variables';
+label,
+select{
+    font-size: $font-form;
+}
+label>span{
+    display: none;
+    &.isvalid{
+        display: inline-block;
+    }
+}
+.isvalid{
+    color: $text-red;
+    font-size: $font-valid;
+}

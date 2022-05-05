@@ -1,0 +1,52 @@
+<fieldset [formGroup]="formParent">
+  <label [for]="name"
+    >{{ label }}
+    <span
+      [ngClass]="{
+        isvalid:
+          formParent.controls[name].invalid &&
+          (formParent.controls[name].dirty || formParent.controls[name].touched)
+      }"
+      >*</span
+    >
+  </label>
+  <ng-container *ngIf="type === 'text' || type === 'password'; else textArea">
+    <input
+      class="form-control"
+      [type]="type"
+      [name]="name"
+      [id]="name"
+      [placeholder]="placeholder"
+      [formControlName]="name"
+      [required]="required"
+      [readonly]="readonly"
+      [value]="value"
+    />
+  </ng-container>
+  <ng-template #textArea>
+    <textarea
+      class="form-control"
+      [name]="name"
+      [rows]="rows"
+      [id]="name"
+      [placeholder]="placeholder"
+      [formControlName]="name"
+      [required]="required"
+      [readonly]="readonly"
+      >{{ value }}</textarea
+    >
+  </ng-template>
+
+  <span
+    class="isvalid"
+    *ngIf="
+      formParent.controls[name].invalid &&
+      (formParent.controls[name].dirty || formParent.controls[name].touched)
+    "
+  >
+    {{ name }} es requerido
+  </span>
+  <!-- <div *ngIf="name.errors?.['required']">
+        Name is required.
+      </div> -->
+</fieldset>

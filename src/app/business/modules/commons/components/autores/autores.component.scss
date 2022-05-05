@@ -1,0 +1,17 @@
+@import './../../../../../../scss/variables';
+table {
+  width: 100%;
+}
+td,
+th {
+  width: auto;
+}
+.mat{
+    &-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
+    &-row:hover &-cell {
+      background: $gray;
+    }
+  }

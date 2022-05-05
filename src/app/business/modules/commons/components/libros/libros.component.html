@@ -1,0 +1,123 @@
+<div class="row">
+  <div class="col-12">
+    <h2>{{ title }}</h2>
+  </div>
+</div>
+<div class="row align-items-center">
+  <div class="col-md-9 col-6">
+    <mat-form-field appearance="standard">
+      <mat-label>Filtro de Búsqueda</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Título o descripción"
+        #input
+      />
+    </mat-form-field>
+  </div>
+  <div class="col-md-2 col-6">
+    <app-button
+      [texto]="buttonNew.texto"
+      [color]="buttonNew.color"
+      [type]="buttonNew.type"
+      (evento)="create()"
+    ></app-button>
+  </div>
+</div>
+
+<ng-container *ngIf="table">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let row">{{ row?.id }}</td>
+      </ng-container>
+
+      <!-- titulo Column -->
+      <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Título</th>
+        <td mat-cell *matCellDef="let row">{{ row?.titulo }}</td>
+      </ng-container>
+
+      <!-- descripcion Column -->
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</th>
+        <td mat-cell *matCellDef="let row">{{ row.descripcion }}</td>
+      </ng-container>
+
+      <!-- autor Column -->
+      <ng-container matColumnDef="autor">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Autor</th>
+        <td mat-cell *matCellDef="let row">{{ row.autor.nombre }}</td>
+      </ng-container>
+
+      <!-- año Column -->
+      <ng-container matColumnDef="anio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Año</th>
+        <td mat-cell *matCellDef="let row">{{ row.anio }}</td>
+      </ng-container>
+
+      <!-- publicado Column -->
+      <ng-container matColumnDef="publicado">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Publicado</th>
+        <td mat-cell *matCellDef="let row">
+          <span
+            [ngClass]="{
+              publicado: row.publicado,
+              'publicado-no': !row.publicado
+            }"
+            >{{ row.publicado ? "Publicado" : "publicado" }}</span
+          >
+        </td>
+      </ng-container>
+
+      <!-- Opciones Column -->
+      <ng-container matColumnDef="opciones">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>opciones</th>
+        <td mat-cell *matCellDef="let row">
+          <a
+            (click)="edit(row)"
+            #tooltip="matTooltip"
+            matTooltip="Editar"
+            matTooltipPosition="above"
+            matTooltipHideDelay="100"
+          >
+            <mat-icon>edit</mat-icon>
+          </a>
+          <a
+            (click)="delete(row)"
+            #tooltip="matTooltip"
+            matTooltip="Eliminar"
+            matTooltipPosition="above"
+            matTooltipHideDelay="100"
+          >
+            <mat-icon>delete</mat-icon>
+          </a>
+          <!-- <a (click)="view()"><mat-icon>search</mat-icon></a> -->
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No se encontro datos con el filtro "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+
+    <!-- <mat-paginator
+      [length]="response"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+    >
+    </mat-paginator> -->
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of response"
+    ></mat-paginator>
+  </div>
+</ng-container>

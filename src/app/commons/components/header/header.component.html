@@ -1,0 +1,30 @@
+<mat-toolbar>
+  <img
+    src="https://angular.io/assets/images/logos/angular/logo-nav@2x.png"
+    appNotImage
+    height="30"
+    alt="Logotipo"
+  />
+  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Libros</span> -->
+  <span class="spacer"></span>
+  <div class="user d-flex align-items-center p-2">
+    <div class="d-flex flex-column border-end border-dark pe-2">
+      <label for="">{{ name }}</label>
+      <span>{{ rolUser }}</span>
+    </div>
+    <mat-icon>account_circle</mat-icon>
+  </div>
+
+  <a class="logout" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </a>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button> -->
+</mat-toolbar>

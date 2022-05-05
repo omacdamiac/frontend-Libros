@@ -1,0 +1,22 @@
+@import '../../../../scss/variables';
+
+button{
+    margin-right: 15px!important;
+    @media (max-width: 768px) {
+        width:100%;
+        border: 1px solid;
+        margin-bottom: 20px;
+        height: 60px;
+        font-size: $font-button-responsive;
+    }
+}
+.mat{
+    &-green{
+        color: $succes;
+        border: 1px solid $succes;
+    }
+    &-warn.mat-stroked-button{
+        border: 1px solid $text-red;
+    }
+
+}

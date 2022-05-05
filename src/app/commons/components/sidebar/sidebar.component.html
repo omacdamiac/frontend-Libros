@@ -1,0 +1,9 @@
+<div class="bg-light border mt-3">
+  <ul>
+    <li *ngFor="let item of main" class="m-md-3 m-0 border">
+      <a class="d-flex" [routerLink]="item.link" routerLinkActive="is-valid">
+        <mat-icon>navigate_next</mat-icon>{{ item.text }}
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,12 @@
+<app-loader></app-loader>
+<app-header [name]="name" [rolUser]="rolUser"></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 col-12">
+      <app-sidebar [main]="sidebar"></app-sidebar>
+    </div>
+    <div class="col-md-9 col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

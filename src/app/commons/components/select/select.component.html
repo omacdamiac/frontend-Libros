@@ -1,0 +1,35 @@
+<fieldset [formGroup]="formParent">
+  <label for="name"
+    >{{ label }}
+    <span
+      [ngClass]="{
+        isvalid:
+          formParent.controls[name].invalid &&
+          (formParent.controls[name].dirty || formParent.controls[name].touched)
+      }"
+      >*</span
+    >
+  </label>
+  <select
+    class="form-control"
+    [name]="name"
+    [formControlName]="name"
+    [id]="name"
+    [required]="required"
+  >
+    <option selected disabled>Seleccionar</option>
+    <option *ngFor="let option of options" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+
+  <span
+    class="isvalid"
+    *ngIf="
+      formParent.controls[name].invalid &&
+      (formParent.controls[name].dirty || formParent.controls[name].touched)
+    "
+  >
+    {{ name }} es requerido
+  </span>
+</fieldset>

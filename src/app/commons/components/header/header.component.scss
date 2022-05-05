@@ -1,0 +1,26 @@
+@import '../../../../scss/variables';
+mat-toolbar {
+  background-color: $toolbar;
+  .spacer {
+    flex: 1 1 auto;
+  }
+  label {
+    font-size: 16px;
+    line-height: normal;
+  }
+  span {
+    font-size: $font-form;
+    line-height: normal;
+  }
+  .user{
+    background-color: rgba(255,255,255,.8);
+    border-radius: 5px;
+  }
+  .logout{
+    padding: 10px;
+    color: $dark;
+    &:hover{
+      color: $text-red;
+    }
+  }
+}

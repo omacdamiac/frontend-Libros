@@ -1,0 +1,44 @@
+<div class="row position-relative">
+  <div class="col-12">
+    <h2 mat-dialog-title>{{ title }}</h2>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-12">
+    <app-input
+      [formParent]="formAutor"
+      [label]="inputNombreAutor.text"
+      [placeholder]="inputNombreAutor.place"
+      [required]="inputNombreAutor.required"
+      [name]="inputNombreAutor.name"
+      [value]="autor?.nombre"
+      [type]="inputNombreAutor.type"
+    ></app-input>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <app-input
+      [formParent]="formAutor"
+      [label]="inputGenero.text"
+      [placeholder]="inputGenero.place"
+      [required]="inputGenero.required"
+      [name]="inputGenero.name"
+      [type]="inputGenero.type"
+      [value]="autor?.genero"
+    ></app-input>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-12 position-relative">
+    <div class="layer" [ngClass]="{ cdr: formAutor.valid }"></div>
+    <app-button
+      [texto]="buttonSaveAutor.texto"
+      [color]="buttonSaveAutor.color"
+      [mat-dialog-close]="formAutor"
+      [disabled]="!formAutor.valid"
+    ></app-button>
+  </div>
+</div>
